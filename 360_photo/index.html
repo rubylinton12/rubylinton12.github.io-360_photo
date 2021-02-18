@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>A-Frame - Image Textures</title>
+	<script src="js/aframe-master.1.0.4.min.js"></script>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+</head>
+
+<body>
+<a-scene antialias="true">
+	
+	<a-assets>
+		<img id="sky" src="images/sky.jpg" crossorigin="anonymous" />
+		<img id="canyon" src="images/canyon.jpg" crossorigin="anonymous"/>
+        <img id="mountains" src="images/mountains.jpg" crossorigin="anonymous"/>
+        <img id="beach" src="images/beach.jpg" crossorigin="anonymous"/>
+        <img id="city" src="images/city.jpg" crossorigin="anonymous"/>
+	</a-assets>
+    
+     <a-camera>
+        <a-cursor></a-cursor>
+    </a-camera>
+		
+	<a-sky 
+        color = "#FFFFFF"
+		material = "src: #sky">
+	</a-sky>
+    
+     <a-box
+        width = "2" height = "2" depth = "2"
+		position="2 1 2"
+        scale=".2 .2 .2"     
+        rotation="0 45 0" 
+		event-set__enter="_event: mouseenter; _target: a-sky; material.src: #city">
+	</a-box>
+    
+     <a-box
+        width = "2" height = "2" depth = "2"
+		position="-2 1 2"
+        scale=".2 .2 .2"     
+        rotation="0 45 0" 
+		event-set__enter="_event: mouseenter; _target: a-sky; material.src: #beach">
+	</a-box>
+    
+   <a-sphere
+		radius = "1"
+		position = "-4 1 -2"
+        rotation = "90 0 0"  
+		material = "src: #tire;"
+		shadow = "cast: true; receive: true; repeat: 3 3;"
+        event-set__enter="_event: mouseenter; _target: a-sky; material.src: #mountains">>
+	</a-sphere>
+    
+    <a-sphere
+		radius = "1"
+		position = "4 1 -2"
+        rotation = "90 0 0"  
+		material = "src: #tire;"
+		shadow = "cast: true; receive: true; repeat: 3 3;"
+        event-set__enter="_event: mouseenter; _target: a-sky; material.src: #canyon">>
+	</a-sphere>
+    
+    
+    
+    
+     
+    
+    
+	
+	
+	
+	
+	
+</a-scene>
+</body>
+</html>
